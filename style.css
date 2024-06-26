@@ -1,0 +1,272 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background-color: #1363df !important;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  min-height: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+header,
+footer {
+  background-color: #f8f8f8;
+  padding: 20px;
+  text-align: center;
+  z-index: 999;
+}
+
+.header-content,
+.footer-content {
+  width: fit-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header input[type="text"],
+header select {
+  margin: 0.5rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+#clear-filter {
+  height: 40px;
+  width: 140px;
+  margin: 0.5rem;
+  cursor: pointer;
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+main {
+  padding: 100px 20px 20px 20px;
+}
+
+#product-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin: 1rem;
+  padding: 1rem;
+  width: calc(25% - 2rem);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 480px) {
+  .product-card {
+    width: 100%;
+  }
+}
+
+#load-more {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+#load-more:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for loading indicator and Error */
+.loading {
+  display: none;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #09f;
+  animation: spin 1s ease infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.error {
+  display: none;
+  text-align: center;
+  margin: 20px 0;
+  color: red;
+}
+
+#loading-indicator-container,
+#error-message-container {
+  display: none;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Hamburger Menu Button */
+#menu-toggle {
+  display: none;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+#menu-toggle span {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin-bottom: 5px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+#menu-toggle.open span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 5px);
+}
+
+#menu-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+#menu-toggle.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -5px);
+}
+
+#mobile-menu {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+}
+
+#mobile-menu.open {
+  right: 0;
+}
+
+#mobile-menu.close {
+  right: -95%;
+}
+
+#close-button {
+  display: none;
+
+  img {
+    height: 1.8rem;
+  }
+}
+
+.filter-header {
+  display: none;
+}
+
+/* Hide mobile menu toggle on larger screens */
+@media (max-width: 768px) {
+  #mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -95%; /* Off-screen initially */
+    width: 95%;
+    height: 100%;
+    background-color: #f8f8f8;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: right 0.3s;
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+
+  #menu-toggle {
+    display: block;
+  }
+
+  .filter-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: rgb(248 248 249);
+    border-bottom: 2px solid rgb(238 238 240);
+
+    p {
+      font-size: 18px;
+      font-weight: 500;
+      display: block;
+    }
+  }
+
+  header {
+    min-height: 40px !important;
+    top: 0px;
+  }
+
+  #close-button {
+    display: block;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+  }
+
+  .header-content {
+    display: block;
+  }
+
+  main {
+    padding: 90px 20px 20px 20px;
+  }
+
+  #filter-category,
+  #sort-price,
+  #clear-filter {
+    margin: 10px 25px;
+  }
+
+  #clear-filter {
+    background-color: #1363df;
+    color: white;
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Listing Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <button id="menu-toggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="header-content">
+        <input
+          type="text"
+          id="search-bar"
+          placeholder="Search for products..."
+        />
+      </div>
+      <nav id="mobile-menu">
+        <div class="filter-header">
+          <p>Filters</p>
+          <button id="close-button">
+            <img src="./assets/svg/close.svg" alt="close hamburger" />
+          </button>
+        </div>
+        <select id="filter-category">
+          <option value="">All Categories</option>
+        </select>
+        <select id="sort-price">
+          <option value="default">Sort by Price</option>
+          <option value="asc">Low to High</option>
+          <option value="desc">High to Low</option>
+        </select>
+        <button id="clear-filter">Clear all</button>
+        <!-- Menu items here -->
+      </nav>
+    </header>
+
+    <main>
+      <div id="loading-indicator" class="loading">
+        <div class="spinner"></div>
+        <p>Loading...</p>
+      </div>
+
+      <div id="error-message" class="error">
+        <p>
+          An error occurred while fetching the products. Please try again later.
+        </p>
+      </div>
+
+      <section id="product-list"></section>
+      <button id="load-more">Load More</button>
+    </main>
+
+    <footer></footer>
+    <script src="scripts/api.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
