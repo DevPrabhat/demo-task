@@ -111,6 +111,10 @@ main {
 /* Styles for loading indicator and Error */
 .loading {
   display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   text-align: center;
   margin: 20px 0;
 }
