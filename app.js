@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Show loading indicator
   const showLoading = (isLoading) => {
-    loadingIndicator.style.display = isLoading ? "block" : "none";
+    loadingIndicator.style.display = isLoading ? "flex" : "none";
   };
 
   // Show error message
